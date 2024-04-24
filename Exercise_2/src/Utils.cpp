@@ -74,12 +74,11 @@ bool ImportData(const string &InputFilePath,
             /* Read the first part of the line and
              * memorized the element of w in w_frac */
             getline(FileData, w_frac, ';');
+            if(w_frac == "")
+                break;
             istringstream w_val;
             // The value in w_frac is moved in w_val
             w_val.str(w_frac);
-            /* w_val is cleared to free space for the
-             * next element of w */
-            w_val.clear();
             /* The value in w_val is saved in w array
              * in position 0 */
             w_val >> w[j - 4];
@@ -88,7 +87,6 @@ bool ImportData(const string &InputFilePath,
             getline(FileData, r_rate);
             istringstream r_val;
             r_val.str(r_rate);
-            r_val.clear();
             r_val >> r[j - 4];
         }
     }
